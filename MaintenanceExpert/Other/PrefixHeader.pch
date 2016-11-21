@@ -20,9 +20,6 @@
 #define ColorWithRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/1.0] //<<< 用10进制表示颜色，例如（255,255,255）黑色
 
 #import "SDAutoLayout.h"
-#import "ZLPhotoActionSheet.h"
-#import "ZLDefine.h"
-
 
 #endif /* PrefixHeader_pch */
 

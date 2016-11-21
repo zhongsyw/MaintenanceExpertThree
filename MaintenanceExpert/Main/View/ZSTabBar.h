@@ -11,6 +11,7 @@
 @class ZSTabBar;
 
 @protocol ZSTabBarDelegate <NSObject>
+
 - (void)tabBarPlusBtnClick:(ZSTabBar *)tabBar;
 
 @end

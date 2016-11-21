@@ -8,7 +8,7 @@
 
 #import "XWPopMenuController.h"
 #import "PublishMenuButton.h"
-
+#import "ZSNavigationController.h"
 //导入自定义控制器->
 #import "OneViewController.h"
 #import "TwoViewController.h"
@@ -93,6 +93,7 @@
     //添加底部关闭按钮
     [self insertCloseImg];
     
+        
     //定时器控制每个按钮弹出的时间
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(popupBtn) userInfo:nil repeats:YES];
     
@@ -106,6 +107,7 @@
     
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+   
     [UIView animateWithDuration:0.6 animations:^{
         
         _closeImgView.transform = CGAffineTransformRotate(_closeImgView.transform, M_PI);
@@ -272,7 +274,7 @@
                 _closeImgView.transform = CGAffineTransformRotate(_closeImgView.transform, -M_PI_2*1.5);
             }];
         }];
-        //[self presentViewController:publishTextVC animated:YES completion:nil];
+       // [self presentViewController:publishTextVC animated:YES completion:nil];
         [self.navigationController pushViewController:publishTextVC animated:YES];
 
     }else if(btn.tag == 1001){
@@ -350,6 +352,7 @@
     } completion:^(BOOL finished) {
         
         [self.navigationController popToRootViewControllerAnimated:NO];
+        //[self dismissViewControllerAnimated:NO completion:nil];
     }];
     
 }

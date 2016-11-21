@@ -12,6 +12,10 @@
 #import "ZSChangePasswordVC.h"
 #import "MineInfModel.h"
 
+#import "ZSHomeViewController.h"
+#import "ZSNavigationController.h"
+#import "ZSTabBarController.h"
+
 #import "UIView+ZSExtension.h"
 #import "UIbutton.h"
 
@@ -21,7 +25,10 @@
 @interface ZSLoginViewController ()
 {
     BOOL _yanzhengmalog;
+    
 }
+
+
 @end
 
 
@@ -48,6 +55,7 @@
     [self.view addSubview:imageview];
    
     [self createUI];
+    
 
 }
 
@@ -118,6 +126,7 @@
     [phonetextfield setValue:[UIColor colorWithRed:85.0 / 255.0 green:85.0 / 255.0 blue:85.0 / 255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     [phonetextfield setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
     phonetextfield.clearButtonMode = UITextFieldViewModeAlways;
+    phonetextfield.keyboardType = UIKeyboardTypePhonePad;
     
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, phonetextfield.frame.size.height - 1, phonetextfield.frame.size.width , 1)];
     lineView.backgroundColor = [UIColor blackColor];
@@ -125,9 +134,9 @@
     
     [self.view addSubview:phonetextfield];
     [self.view addSubview:phonetextfield];
-
+    
     _phone = phonetextfield;
-
+ 
     
     
     UITextField *secrettextfield = [[UITextField alloc]initWithFrame:CGRectMake(30,KScreenHeight / 2 - 40, KScreenWidth - 60, 40)];
@@ -199,7 +208,6 @@
 
 - (void)loginclick {
     
-    
     if ([self.phone.text isEqualToString:@"1"] && [self.secret.text isEqualToString:@"1"]) {
 
         
@@ -220,9 +228,15 @@
         NSUserDefaults *users = [NSUserDefaults standardUserDefaults];
         [users setObject:data forKey:@"USER"];
         
-
-//        [self.navigationController removeFromParentViewController];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        ZSHomeViewController *home = [[ZSHomeViewController alloc]init];
+        ZSTabBarController *tab = [[ZSTabBarController alloc]init];
+        
+        ZSNavigationController *nav = [[ZSNavigationController alloc]initWithRootViewController:tab];
+        self.view.window.rootViewController = nav;
+        #warning 这边添加选择种类跳转
+        
+        [self.navigationController pushViewController:home animated:YES];
+        
         
         }else {
         UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"用户名密码输入错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -468,17 +482,7 @@
     //[self presentViewController:changeVC animated:YES completion:nil];
 }
 
-/**
- *  界面消失
- *
- */
-//- (void)viewWillDisappear:(BOOL)animated {
-//
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    
-//    [self.navigationController.navigationBar setShadowImage:nil];
-//    
-//}
+
 
 /**
  *  键盘响应
@@ -494,6 +498,11 @@
 {
     [_phone resignFirstResponder];
     [_secret resignFirstResponder];
+    
 }
+
+
+
+
 
 @end

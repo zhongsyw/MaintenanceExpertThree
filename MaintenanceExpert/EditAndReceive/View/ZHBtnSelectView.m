@@ -27,7 +27,7 @@
 }
 
 - (void)setupContent:(NSArray *)titles column:(NSInteger)column {
-    CGFloat btnW = (self.frame.size.width - ZHBTN_PADDING * 2 - (column - 1) * self.horizontalMargin) / column + 5;
+    CGFloat btnW = (self.frame.size.width - ZHBTN_PADDING * 2 - (column - 1) * self.horizontalMargin) / column + 18;
     // 按钮高度可以自己定义
     CGFloat btnH = 15;
     CGFloat btnX = 0;

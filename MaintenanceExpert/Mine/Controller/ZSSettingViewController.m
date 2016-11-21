@@ -16,6 +16,7 @@
 
 
 
+
 @interface ZSSettingViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     NSString *_username;
@@ -142,8 +143,11 @@
 
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
         
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popToRootViewControllerAnimated:YES];
     
+    ZSLoginViewController *login = [[ZSLoginViewController alloc]init];
+    [self.navigationController pushViewController:login animated:YES];
 }
 
 

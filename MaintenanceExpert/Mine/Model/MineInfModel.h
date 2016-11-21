@@ -10,6 +10,9 @@
 
 @interface MineInfModel : NSObject<NSCoding>
 
+/**
+ *  我的界面，显示信息
+ */
 @property(nonatomic,copy)UIImage *usericon;
 @property(nonatomic,copy)NSString *username;
 @property(nonatomic,copy)NSString *moneynum;
@@ -21,6 +24,13 @@
 @property(nonatomic,copy)NSString *Mymoney;
 
 @property(nonatomic,copy)NSString *MineInformation;
+
+/**
+ *  工程师注册时候的信息
+ */
+
+
+
 
 
 @end

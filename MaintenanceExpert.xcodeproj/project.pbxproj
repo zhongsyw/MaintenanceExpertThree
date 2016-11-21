@@ -1004,6 +1004,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 5768C1CD1DB5B7CF0069B421;
 			productRefGroup = 5768C1D71DB5B7CF0069B421 /* Products */;
@@ -1325,7 +1326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/zsyw/Desktop/注册界面详细/MaintenanceExpert/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/koka/Desktop/MaintenanceExpertThree1/MaintenanceExpert/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = MaintenanceExpert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1340,7 +1341,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/zsyw/Desktop/注册界面详细/MaintenanceExpert/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/koka/Desktop/MaintenanceExpertThree1/MaintenanceExpert/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = MaintenanceExpert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

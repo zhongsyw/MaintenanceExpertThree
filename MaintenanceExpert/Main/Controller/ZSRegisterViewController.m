@@ -64,7 +64,7 @@
     .heightIs(40);
     //  输入框
     _phoneTF = [[UITextField alloc] init];
-    
+    _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
     _phoneTF.placeholder = @"请输入手机号";
     [self.view addSubview:_phoneTF];
     _phoneTF.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -103,7 +103,7 @@
     .heightIs(40);
     //  输入框
     _messageTF = [[UITextField alloc] init];
-    
+    _messageTF.keyboardType = UIKeyboardTypeNumberPad;
     _messageTF.placeholder = @"请输入验证码";
     [self.view addSubview:_messageTF];
     _messageTF.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -196,7 +196,6 @@
     btnView.verticalMargin = 10;
     btnView.delegate = self;
     self.btnkindView = btnView;
-    self.btnkindView.tag = btnView.tag;
 
 }
 
@@ -218,9 +217,12 @@
     [_nextStepBtn setTitle:@"注   册" forState:UIControlStateNormal];
     [_nextStepBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_nextStepBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    
 #warning 单击并移出按钮范围 进入工程师界面，单击 进入客户界面
-    [_nextStepBtn addTarget:self action:@selector(tabButtonTapped:forEvent:) forControlEvents:UIControlEventTouchDown];
-    [_nextStepBtn addTarget:self action:@selector(repeatBtnTapped:forEvent:) forControlEvents:UIControlEventTouchDownRepeat];    [self.view addSubview:_nextStepBtn];
+    
+    [_nextStepBtn addTarget:self action:@selector(tabButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:_nextStepBtn];
     
     _nextStepBtn.sd_layout
     .leftSpaceToView(self.view, 78)
@@ -289,20 +291,10 @@
 
 //  注 册 按 钮 方法
 //  One
-- (void)tabButtonTapped:(UIButton *)sender forEvent:(UIEvent *)event {
-    [self performSelector:@selector(btnOfRegistration:) withObject:sender afterDelay:0.2];
-}
-
-//  注 册 按 钮 方法
-- (void)btnOfRegistration:(NSNumber* )number {
-    
+- (void)tabButtonTapped{
     ZSRegisterCustomerVC* custormerVC = [[ZSRegisterCustomerVC alloc] init];
     [self.navigationController pushViewController:custormerVC animated:YES];
-
-    //[self.navigationController popToRootViewControllerAnimated:YES];
-    
 }
-#warning 单击并移出按钮范围 进入工程师界面，单击 进入客户界面
 
 
 /**

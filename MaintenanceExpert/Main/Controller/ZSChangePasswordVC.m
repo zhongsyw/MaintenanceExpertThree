@@ -22,10 +22,6 @@
     
     [self.navigationItem setTitle:@"修改密码"];
     
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-  
     self.navigationController.navigationBarHidden = NO;
     
 }

@@ -21,7 +21,9 @@
 #import "UIImage+Image.h"
 
 @interface ZSTabBarController ()<ZSTabBarDelegate>
-
+{
+    ZSNavigationController *_nav;
+}
 @end
 
 @implementation ZSTabBarController
@@ -72,8 +74,8 @@
     ZSHomeViewController *HomeVC = [[ZSHomeViewController alloc] init];
     [self setUpOneChildVcWithVc:HomeVC Image:@"home_normal" selectedImage:@"home_highlight" title:@"首页"];
     
-    ZSOrderViewController *FishVC = [[ZSOrderViewController alloc] init];
-    [self setUpOneChildVcWithVc:FishVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"订单"];
+    ZSOrderViewController *OrderVC = [[ZSOrderViewController alloc] init];
+    [self setUpOneChildVcWithVc:OrderVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"订单"];
     
     ZSMessageViewController *MessageVC = [[ZSMessageViewController alloc] init];
     [self setUpOneChildVcWithVc:MessageVC Image:@"message_normal" selectedImage:@"message_highlight" title:@"消息"];
@@ -98,8 +100,7 @@
  */
 - (void)setUpOneChildVcWithVc:(UIViewController *)Vc Image:(NSString *)image selectedImage:(NSString *)selectedImage title:(NSString *)title
 {
-    ZSNavigationController *nav = [[ZSNavigationController alloc] initWithRootViewController:Vc];
-    
+    _nav = [[ZSNavigationController alloc] initWithRootViewController:Vc];
     
     UIImage *myImage = [UIImage imageNamed:image];
     myImage = [myImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -116,21 +117,24 @@
     
     Vc.navigationItem.title = title;
     
-    [self addChildViewController:nav];
+    [self addChildViewController:_nav];
     
 }
+
 #pragma mark - ------------------------------------------------------------------
 #pragma mark - ZSTabBarDelegate
 - (void)tabBarPlusBtnClick:(ZSTabBar *)tabBar {
 
     XWPopMenuController *vc = [[XWPopMenuController alloc]init];
     [self.tabBarController addChildViewController:vc];
-   
+    
     //虚化背景
     UIImage *image = [UIImage imageWithCaputureView:self.view];
-    
     vc.backImg = image;
+    
+    //[self presentViewController:vc animated:NO completion:nil];
     [self.navigationController pushViewController:vc animated:NO];
+    
     
 }
 

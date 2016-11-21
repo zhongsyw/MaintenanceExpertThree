@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MiSearchBar.h"
 
 @interface ZSMapAroundViewController : UIViewController
+
+@property (nonatomic,strong) MiSearchBar *searchBar;
+@property (nonatomic,strong) NSString *searchText;
+
+@property (nonatomic,retain) NSMutableArray *arr;
+@property (nonatomic,retain) NSMutableArray *resultArr;
+
 
 @end

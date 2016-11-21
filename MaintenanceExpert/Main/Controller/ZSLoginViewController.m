@@ -79,18 +79,6 @@
     
     [self createRegisterAndForgetsecret];
     
-    
-    UIButton *leftButton = [[UIButton alloc]init];
-    leftButton.frame = CGRectMake(KScreenWidth - 35 , 24, 25, 25);
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"twtr-icn_close"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:leftButton];
-    
-}
-
-- (void)back {
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)createlogo {
@@ -158,6 +146,7 @@
     _messageTF = [[UITextField alloc]init];
     _messageTF.frame = CGRectMake(secrettextfield.frame.origin.x, secrettextfield.frame.origin.y, secrettextfield.frame.size.width - 120, secrettextfield.frame.size.height);
     _messageTF.placeholder = @"请输入验证码";
+    _messageTF.keyboardType = UIKeyboardTypeNumberPad;
     [_messageTF setValue:[UIColor colorWithRed:85.0 / 255.0 green:85.0 / 255.0 blue:85.0 / 255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     [_messageTF setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
     _messageTF.clearButtonMode = UITextFieldViewModeAlways;
@@ -498,6 +487,7 @@
 {
     [_phone resignFirstResponder];
     [_secret resignFirstResponder];
+    [_messageTF resignFirstResponder];
     
 }
 

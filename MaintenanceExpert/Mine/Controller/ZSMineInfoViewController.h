@@ -11,8 +11,6 @@
 
 @interface ZSMineInfoViewController : UIViewController
 
-
-@property (nonatomic, strong) NSArray<ZLSelectPhotoModel *> *lastSelectMoldels;
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *arrDataSources;
 @property (strong, nonatomic) NSMutableArray *mutableArray;

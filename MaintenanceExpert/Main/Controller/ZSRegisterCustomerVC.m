@@ -14,7 +14,6 @@
 #import "STPickerArea.h"
 #import "UIViewController+SelectPhotoIcon.h"
 
-
 @interface ZSRegisterCustomerVC () <UITextFieldDelegate,ZHBtnSelectViewDelegate,STPickerAreaDelegate,STPickerDateDelegate>
 {
     UIScrollView *_scrollview;
@@ -64,6 +63,9 @@
     self.navigationItem.title = @"工程师";
     self.view.backgroundColor = [UIColor cyanColor];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBG:)];
+    [self.view addGestureRecognizer:tapGesture];
     
     /**
      scrollview初始化
@@ -84,6 +86,10 @@
     
 }
 
+- (void)tapBG:(UITapGestureRecognizer *)gesture {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    
+}
 
 /**
  *  项目，label
@@ -211,7 +217,7 @@
         [pickerArea setDelegate:self];
         [pickerArea setContentMode:STPickerContentModeBottom];
         [pickerArea show];
-    }    
+    }
 }
 
 - (void)pickerDate:(STPickerDate *)pickerDate year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
@@ -233,6 +239,7 @@
     _phonetextfield.delegate = self;
     [_scrollview addSubview:_phonetextfield];
     _phonetextfield.textAlignment = NSTextAlignmentRight;
+    _phonetextfield.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 //电子邮件
@@ -242,6 +249,7 @@
     _emailtextfield.backgroundColor = [UIColor cyanColor];
     _emailtextfield.returnKeyType = UIReturnKeyDone;
     _emailtextfield.delegate = self;
+    _emailtextfield.keyboardType = UIKeyboardTypeEmailAddress;
     [_scrollview addSubview:_emailtextfield];
     _emailtextfield.textAlignment = NSTextAlignmentRight;
 
@@ -398,26 +406,45 @@
     }
     
 }
+
+
 /**
  *  键盘响应
  *
  */
-/**
- *  键盘响应
- *
- */
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    BOOL phoneright = [[Regex class] isMobile:_phonetextfield.text];
+    if (textField == _phonetextfield) {
+        if (phoneright == 1) {
+            
+        }else {
+            UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"提示" message:@"手机号码格式输入错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            aler.alertViewStyle = UIAlertViewStyleDefault;
+            [aler show];
+        }
+    }else if (textField == _emailtextfield) {
+        BOOL emailright = [[Regex class] isAvailableEmail:_emailtextfield.text];
+        
+        if (emailright == 1) {
+            
+        }else {
+            UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"提示" message:@"邮箱格式输入错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            aler.alertViewStyle = UIAlertViewStyleDefault;
+            [aler show];
+        }
+    }
+    [textField resignFirstResponder];
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+ 
     [textField resignFirstResponder];
+    
     return YES;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [_nametextfield resignFirstResponder];
-    [_phonetextfield resignFirstResponder];
-    [_emailtextfield resignFirstResponder];
-}
 
 
 - (void)didReceiveMemoryWarning {

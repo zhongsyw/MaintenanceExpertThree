@@ -19,6 +19,10 @@
 #import "UIView+ZSExtension.h"
 #import "UIbutton.h"
 
+#import <SMS_SDK/SMSSDK.h>
+
+
+
 #define KScreenWidth [UIScreen mainScreen].bounds.size.width
 #define KScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -55,9 +59,9 @@
     [self.view addSubview:imageview];
    
     [self createUI];
-    
 
 }
+
 
 - (void)createUI {
    
@@ -223,6 +227,11 @@
         ZSNavigationController *nav = [[ZSNavigationController alloc]initWithRootViewController:tab];
         self.view.window.rootViewController = nav;
         #warning 这边添加选择种类跳转
+        /**
+         验证成功后进入注册界面
+         
+         */
+        //[self commitverifyCode];
         
         [self.navigationController pushViewController:home animated:YES];
         
@@ -235,6 +244,24 @@
 
     
 }
+
+#pragma - mark 提交验证码
+- (void)commitverifyCode {
+    [SMSSDK commitVerificationCode:_messageTF.text phoneNumber:_phone.text zone:@"86" result:^(SMSSDKUserInfo *userInfo, NSError *error) {
+        if (!error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"成功" message:@"验证码验证成功"  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"codesenderrtitle", nil) message:[NSString stringWithFormat:@"错误描述：%@",error.debugDescription]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            NSLog(@"%@",error.debugDescription);
+            [alert show];
+        }
+    }];
+    
+    
+}
+
 
 /**
  *  其他登录方式
@@ -335,6 +362,11 @@
  */
 - (void)startTime {
     
+    /**
+     *  申请验证码
+     */
+    [self getRegisterCode];
+    
     __block int timeout= 59; //倒计时时间
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -395,7 +427,21 @@
     
 }
 
+#pragma - mark 申请验证码
 
+- (void)getRegisterCode {
+    
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:_phone.text zone:@"86" customIdentifier:@"yanzhengma" result:^(NSError *error) {
+        
+        if (!error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"成功" message:[NSString stringWithFormat:@"已像%@的发送验证码",_phone.text]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            [alert show];
+        }else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"codesenderrtitle", nil) message:[NSString stringWithFormat:@"错误描述：%@",error.debugDescription]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+}
 
 /**
  *  注册按钮

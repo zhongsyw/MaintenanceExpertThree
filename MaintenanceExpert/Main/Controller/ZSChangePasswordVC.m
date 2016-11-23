@@ -39,7 +39,7 @@
     [self.view addSubview:phoneTF];
     
     phoneTF.sd_layout.leftSpaceToView(self.view,30)
-                     .topSpaceToView(self.view,30 + 64)
+                     .topSpaceToView(self.view,30 )
                      .rightSpaceToView(self.view,30)
                      .heightIs(40);
     
@@ -47,7 +47,7 @@
     [phoneTF setValue:[UIColor colorWithRed:85.0 / 255.0 green:85.0 / 255.0 blue:85.0 / 255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     [phoneTF setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
     phoneTF.clearButtonMode = UITextFieldViewModeAlways;
-    
+    phoneTF.keyboardType = UIKeyboardTypeNumberPad;
     UIView *lineView = [[UIView alloc]init];
     [self.view addSubview:lineView];
     lineView.sd_layout.leftEqualToView(phoneTF)
@@ -73,7 +73,7 @@
     [yzmTF setValue:[UIColor colorWithRed:85.0 / 255.0 green:85.0 / 255.0 blue:85.0 / 255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     [yzmTF setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
     yzmTF.clearButtonMode = UITextFieldViewModeAlways;
-    
+    yzmTF.keyboardType = UIKeyboardTypeNumberPad;
 #warning 获取验证码
     /**
      验证码按钮
@@ -160,63 +160,74 @@
  */
 - (void)startTime {
     
-    __block int timeout= 59; //倒计时时间
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    
-    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
-    
-    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
-    
-    dispatch_source_set_event_handler(_timer, ^{
+    BOOL phoneright = [[Regex class] isMobile:_phone.text];
+    if (phoneright == 1) {
+        __block int timeout= 59; //倒计时时间
         
-        if(timeout<=0){ //倒计时结束，关闭
-            
-            dispatch_source_cancel(_timer);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                //设置界面的按钮显示
-                
-                [_yzmbtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-                
-                _yzmbtn.userInteractionEnabled = YES;
-                
-            });
-            
-        }else{
-            
-            //            int minutes = timeout / 60;
-            
-            int seconds = timeout % 60;
-            
-            NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                //设置界面的按钮显示 
-                
-                [UIView beginAnimations:nil context:nil];
-                
-                [UIView setAnimationDuration:1];
-                
-                [_yzmbtn setTitle:[NSString stringWithFormat:@"%@秒后重发",strTime] forState:UIControlStateNormal];
-                
-                [UIView commitAnimations];
-                
-                _yzmbtn.userInteractionEnabled = NO;
-                
-            });
-            
-            timeout--;
-            
-            
-            
-        }
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         
-    });
-    
-    dispatch_resume(_timer);
+        dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+        
+        dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+        
+        dispatch_source_set_event_handler(_timer, ^{
+            
+            if(timeout<=0){ //倒计时结束，关闭
+                
+                dispatch_source_cancel(_timer);
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    //设置界面的按钮显示
+                    
+                    [_yzmbtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+                    
+                    _yzmbtn.userInteractionEnabled = YES;
+                    
+                });
+                
+            }else{
+                
+                //            int minutes = timeout / 60;
+                
+                int seconds = timeout % 60;
+                
+                NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    //设置界面的按钮显示
+                    
+                    [UIView beginAnimations:nil context:nil];
+                    
+                    [UIView setAnimationDuration:1];
+                    
+                    [_yzmbtn setTitle:[NSString stringWithFormat:@"%@秒后重发",strTime] forState:UIControlStateNormal];
+                    
+                    [UIView commitAnimations];
+                    
+                    _yzmbtn.userInteractionEnabled = NO;
+                    
+                });
+                
+                timeout--;
+                
+                
+                
+            }
+            
+        });
+        
+        dispatch_resume(_timer);
+        
+    }else {
+        UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"提示" message:@"手机号码输入错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        aler.alertViewStyle = UIAlertViewStyleDefault;
+        [aler show];
+        
+    }
+
+   
    
 }
 
@@ -258,6 +269,7 @@
 #pragma mark -屏幕恢复
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
+  
     //滑动效果
     NSTimeInterval animationDuration = 0.30f;
     [UIView beginAnimations:@"ResizeForKeyboard" context:nil];

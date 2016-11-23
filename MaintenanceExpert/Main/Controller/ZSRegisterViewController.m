@@ -11,8 +11,9 @@
 #import "ZHBtnSelectView.h"
 #import "ZHCustomBtn.h"
 
+#import <SMS_SDK/SMSSDK.h>
 
-@interface ZSRegisterViewController ()<ZHBtnSelectViewDelegate>{
+@interface ZSRegisterViewController ()<ZHBtnSelectViewDelegate,UIAlertViewDelegate>{
     
     UIButton* msgBtn;
 }
@@ -234,6 +235,10 @@
 //  获取 验证码
 //  点击 获取验证码后 倒计时、并按钮变灰
 - (void)startTime {
+    /**
+     *  验证码获取
+     */
+    [self getRegisterCode];
     
     __block int timeout= 59; //倒计时时间
     
@@ -288,12 +293,54 @@
     dispatch_resume(_timer);
 }
 
+#pragma - mark 申请验证码
+- (void)getRegisterCode {
+    
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:_phoneTF.text zone:@"86" customIdentifier:@"yanzhengma" result:^(NSError *error) {
+        
+        if (!error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"成功" message:[NSString stringWithFormat:@"已像%@的发送验证码",_phoneTF.text]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            [alert show];
+        }else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"codesenderrtitle", nil) message:[NSString stringWithFormat:@"错误描述：%@",error.debugDescription]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+}
+
 
 //  注 册 按 钮 方法
 //  One
+
 - (void)tabButtonTapped{
-    ZSRegisterCustomerVC* custormerVC = [[ZSRegisterCustomerVC alloc] init];
-    [self.navigationController pushViewController:custormerVC animated:YES];
+    
+    [self commitverifyCode];
+    
+//    ZSRegisterCustomerVC* custormerVC = [[ZSRegisterCustomerVC alloc] init];
+//    [self.navigationController pushViewController:custormerVC animated:YES];
+}
+
+#pragma - mark 提交验证码
+- (void)commitverifyCode {
+    [SMSSDK commitVerificationCode:_messageTF.text phoneNumber:_phoneTF.text zone:@"86" result:^(SMSSDKUserInfo *userInfo, NSError *error) {
+        if (!error) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"成功" message:@"验证码验证成功"  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            [alert show];
+            /**
+             验证成功后进入注册界面
+             
+            */
+            ZSRegisterCustomerVC* custormerVC = [[ZSRegisterCustomerVC alloc] init];
+            [self.navigationController pushViewController:custormerVC animated:YES];
+            
+        }else {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"codesenderrtitle", nil) message:[NSString stringWithFormat:@"错误描述：%@",error.debugDescription]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
+            NSLog(@"%@",error.debugDescription);
+            [alert show];
+        }
+    }];
+    
+    
 }
 
 
@@ -309,7 +356,17 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [_phoneTF resignFirstResponder];
+    
+    BOOL phoneright = [[Regex class] isMobile:_phoneTF.text];
+    if (phoneright == 1) {
+        [_phoneTF resignFirstResponder];
+    }else {
+        UIAlertView *aler = [[UIAlertView alloc]initWithTitle:@"提示" message:@"手机号码输入错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        aler.alertViewStyle = UIAlertViewStyleDefault;
+        [aler show];
+
+    }
+   
     [_messageTF resignFirstResponder];
     [_passwordTF resignFirstResponder];
 }

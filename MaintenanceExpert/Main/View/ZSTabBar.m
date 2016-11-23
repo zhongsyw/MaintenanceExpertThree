@@ -36,6 +36,7 @@
         [self addSubview:plusBtn];
     }
     return self;
+    
 }
 
 
@@ -46,9 +47,17 @@
     //系统自带的按钮类型是UITabBarButton，找出这些类型的按钮，然后重新排布位置，空出中间的位置
     Class class = NSClassFromString(@"UITabBarButton");
     
-    self.plusBtn.centerX = self.centerX;
-    //调整发布按钮的中线点Y值
-    self.plusBtn.centerY = self.height * 0.5 - 2*ZSMagin ;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
+        self.plusBtn.centerX = KScreenWidth / 2 - self.plusBtn.currentBackgroundImage.size.width / 2;
+        //调整发布按钮的中线点Y值
+        self.plusBtn.centerY = self.height * 0.5 - 2*ZSMagin - 30 ;
+    }else{
+        self.plusBtn.centerX = self.centerX;
+        //调整发布按钮的中线点Y值
+        self.plusBtn.centerY = self.height * 0.5 - 2*ZSMagin ;
+    }
+    
     
     self.plusBtn.size = CGSizeMake(self.plusBtn.currentBackgroundImage.size.width, self.plusBtn.currentBackgroundImage.size.height);
     

@@ -90,6 +90,17 @@
 		578B71211DC0AAC700453A18 /* XWPopMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 578B711E1DC0AAC700453A18 /* XWPopMenuController.m */; };
 		578B71281DC0AB2C00453A18 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 578B71231DC0AB2C00453A18 /* OneViewController.m */; };
 		578B71291DC0AB2C00453A18 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 578B71251DC0AB2C00453A18 /* ThreeViewController.m */; };
+		57A35E0F1DE2DCE100E37962 /* Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A35E0E1DE2DCE100E37962 /* Regex.m */; };
+		57A35E441DE2F6CA00E37962 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E431DE2F6CA00E37962 /* libz.tbd */; };
+		57A35E461DE2F6D400E37962 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E451DE2F6D400E37962 /* libicucore.tbd */; };
+		57A35E481DE2F6DC00E37962 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E471DE2F6DC00E37962 /* MessageUI.framework */; };
+		57A35E4A1DE2F6EB00E37962 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E491DE2F6EB00E37962 /* JavaScriptCore.framework */; };
+		57A35E4C1DE2F6F800E37962 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E4B1DE2F6F800E37962 /* libstdc++.tbd */; };
+		57A35E4E1DE2F70500E37962 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E4D1DE2F70500E37962 /* SystemConfiguration.framework */; };
+		57A35E501DE2F70F00E37962 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E4F1DE2F70F00E37962 /* CoreTelephony.framework */; };
+		57A35E521DE2F71800E37962 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E511DE2F71800E37962 /* AdSupport.framework */; };
+		57A35E561DE2F94700E37962 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E541DE2F94700E37962 /* MOBFoundation.framework */; };
+		57A35E571DE2F94700E37962 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57A35E551DE2F94700E37962 /* SMS_SDK.framework */; };
 		57AAB69A1DD3109300C8707B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAB6991DD3109300C8707B /* MapKit.framework */; };
 		57AAB69C1DD310E600C8707B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAB69B1DD310E600C8707B /* CoreLocation.framework */; };
 		57D7E1E41DB9AACA005E69E2 /* ZSChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D7E1E31DB9AACA005E69E2 /* ZSChangePasswordVC.m */; };
@@ -279,6 +290,18 @@
 		578B71231DC0AB2C00453A18 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
 		578B71241DC0AB2C00453A18 /* ThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
 		578B71251DC0AB2C00453A18 /* ThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
+		57A35E0D1DE2DCE100E37962 /* Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Regex.h; sourceTree = "<group>"; };
+		57A35E0E1DE2DCE100E37962 /* Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Regex.m; sourceTree = "<group>"; };
+		57A35E431DE2F6CA00E37962 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		57A35E451DE2F6D400E37962 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		57A35E471DE2F6DC00E37962 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		57A35E491DE2F6EB00E37962 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/PrivateFrameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		57A35E4B1DE2F6F800E37962 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		57A35E4D1DE2F70500E37962 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		57A35E4F1DE2F70F00E37962 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		57A35E511DE2F71800E37962 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		57A35E541DE2F94700E37962 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		57A35E551DE2F94700E37962 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		57AAB6991DD3109300C8707B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		57AAB69B1DD310E600C8707B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		57D7E1E21DB9AACA005E69E2 /* ZSChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSChangePasswordVC.h; sourceTree = "<group>"; };
@@ -293,6 +316,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A35E561DE2F94700E37962 /* MOBFoundation.framework in Frameworks */,
+				57A35E521DE2F71800E37962 /* AdSupport.framework in Frameworks */,
+				57A35E571DE2F94700E37962 /* SMS_SDK.framework in Frameworks */,
+				57A35E501DE2F70F00E37962 /* CoreTelephony.framework in Frameworks */,
+				57A35E4E1DE2F70500E37962 /* SystemConfiguration.framework in Frameworks */,
+				57A35E4C1DE2F6F800E37962 /* libstdc++.tbd in Frameworks */,
+				57A35E4A1DE2F6EB00E37962 /* JavaScriptCore.framework in Frameworks */,
+				57A35E481DE2F6DC00E37962 /* MessageUI.framework in Frameworks */,
+				57A35E461DE2F6D400E37962 /* libicucore.tbd in Frameworks */,
+				57A35E441DE2F6CA00E37962 /* libz.tbd in Frameworks */,
 				57AAB69C1DD310E600C8707B /* CoreLocation.framework in Frameworks */,
 				57AAB69A1DD3109300C8707B /* MapKit.framework in Frameworks */,
 				81A2D96C1A28D1EBC4B17F4E /* libPods-MaintenanceExpert.a in Frameworks */,
@@ -777,6 +810,7 @@
 		5768C2261DB5B9050069B421 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				57A35E531DE2F94700E37962 /* SMS_SDK */,
 				30A2912F1DE2C6680012476D /* TZImagePickerController */,
 				5771FDE21DBDE1B400003DCC /* View */,
 				5768C2271DB5B9050069B421 /* AppDelegate.h */,
@@ -855,8 +889,19 @@
 		5771FDE21DBDE1B400003DCC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				57A35E0D1DE2DCE100E37962 /* Regex.h */,
+				57A35E0E1DE2DCE100E37962 /* Regex.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		57A35E531DE2F94700E37962 /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				57A35E541DE2F94700E37962 /* MOBFoundation.framework */,
+				57A35E551DE2F94700E37962 /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
 			sourceTree = "<group>";
 		};
 		EC63BC1B2D89A0A769E8CBA5 /* Pods */ = {
@@ -871,6 +916,14 @@
 		FAB04BAB2F5204EC9D3DD5DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57A35E511DE2F71800E37962 /* AdSupport.framework */,
+				57A35E4F1DE2F70F00E37962 /* CoreTelephony.framework */,
+				57A35E4D1DE2F70500E37962 /* SystemConfiguration.framework */,
+				57A35E4B1DE2F6F800E37962 /* libstdc++.tbd */,
+				57A35E491DE2F6EB00E37962 /* JavaScriptCore.framework */,
+				57A35E471DE2F6DC00E37962 /* MessageUI.framework */,
+				57A35E451DE2F6D400E37962 /* libicucore.tbd */,
+				57A35E431DE2F6CA00E37962 /* libz.tbd */,
 				57AAB69B1DD310E600C8707B /* CoreLocation.framework */,
 				57AAB6991DD3109300C8707B /* MapKit.framework */,
 				6528092F46243E4DB761EA15 /* libPods-MaintenanceExpert.a */,
@@ -1115,6 +1168,7 @@
 				571244381DC1C82E009CBE66 /* UIImage+XW.m in Sources */,
 				5753F0561DC824EC001D95D6 /* STPickerSingle.m in Sources */,
 				30A291481DE2C6680012476D /* TZImageManager.m in Sources */,
+				57A35E0F1DE2DCE100E37962 /* Regex.m in Sources */,
 				30A2912E1DE2C63F0012476D /* TZTestCell.m in Sources */,
 				5753F0521DC824E7001D95D6 /* STPickerDate.m in Sources */,
 				30A2912B1DE2C6210012476D /* LxGridViewFlowLayout.m in Sources */,
@@ -1283,10 +1337,17 @@
 			baseConfigurationReference = CC9CB1DA0ADD916D7022FE2C /* Pods-MaintenanceExpert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4GG3G7KSXK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+					"$(PROJECT_DIR)/MaintenanceExpert/Other/SMS_SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2/MaintenanceExpert/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2副本/MaintenanceExpert/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = MaintenanceExpert/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zsyw.MaintenanceExpert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1298,10 +1359,17 @@
 			baseConfigurationReference = EF99949DBB471B496024858D /* Pods-MaintenanceExpert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4GG3G7KSXK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+					"$(PROJECT_DIR)/MaintenanceExpert/Other/SMS_SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2/MaintenanceExpert/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2副本/MaintenanceExpert/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = MaintenanceExpert/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zsyw.MaintenanceExpert;
 				PRODUCT_NAME = "$(TARGET_NAME)";

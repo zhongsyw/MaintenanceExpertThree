@@ -72,7 +72,7 @@
     
     
     ZSHomeViewController *HomeVC = [[ZSHomeViewController alloc] init];
-    [self setUpOneChildVcWithVc:HomeVC Image:@"home_normal" selectedImage:@"home_highlight" title:@"首页"];
+    [self setUpOneChildVcWithVc:HomeVC Image:@"zx_home_normal" selectedImage:@"home_highlight" title:@"首页"];
     
     ZSOrderViewController *OrderVC = [[ZSOrderViewController alloc] init];
     [self setUpOneChildVcWithVc:OrderVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"订单"];

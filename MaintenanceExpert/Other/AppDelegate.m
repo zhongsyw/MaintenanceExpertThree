@@ -12,7 +12,10 @@
 #import "ZSNavigationController.h"
 #import "ZSLoginViewController.h"
 
+#import <SMS_SDK/SMSSDK.h>
 
+#define appkey @"193803994e67e"
+#define app_secrect @"3eaf0099d54d6fe3f27052cfa849dc5b"
 
 @interface AppDelegate ()
 
@@ -48,6 +51,11 @@
         self.window.rootViewController = nav;
     }
     
+    /**
+     *  对SMSSDK进行授权关联
+     */
+    [SMSSDK registerApp:appkey
+             withSecret:app_secrect];
     
     
     [self.window makeKeyAndVisible];

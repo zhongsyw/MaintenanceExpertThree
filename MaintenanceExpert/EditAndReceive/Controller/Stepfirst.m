@@ -62,8 +62,15 @@
     [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     [self nextstepbtn];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBG:)];
+    [self.view addGestureRecognizer:tapGesture];
 }
 
+- (void)tapBG:(UITapGestureRecognizer *)gesture {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    
+}
 /**
  *  导航标题
  */
@@ -161,7 +168,8 @@
         self.textcontactTel.placeholder = @"请输入联系人电话:";
         self.textcontactTel.textAlignment = NSTextAlignmentRight;
         self.textcontactTel.returnKeyType = UIReturnKeyDone;
-
+        self.textcontactTel.keyboardType = UIKeyboardTypeNumberPad;
+        
         [cell addSubview:self.textcontactTel];
         
     }else {

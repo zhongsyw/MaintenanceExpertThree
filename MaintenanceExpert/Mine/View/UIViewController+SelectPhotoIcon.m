@@ -133,13 +133,12 @@
         if ([viewController isKindOfClass:NSClassFromString(@"PLUICameraViewController")]) {
             return;
         }
-        [navigationController setNavigationBarHidden:NO animated:NO];
+        [navigationController setNavigationBarHidden:YES animated:NO];
 
     }
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated;{
-    
     
 }
 

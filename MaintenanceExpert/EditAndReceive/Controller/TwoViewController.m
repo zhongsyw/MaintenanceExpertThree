@@ -68,14 +68,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = NO;
 }
 
-
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//    self.navigationController.navigationBarHidden = NO;
-//}
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    self.navigationController.navigationBarHidden = YES;
+}
 
 //  懒加载
 - (UIImagePickerController *)imagePickerVc {
@@ -111,11 +110,11 @@
     //  点击任意地方收起键盘 1/3
     //    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(finishPublish)];
+//    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(finishPublish)];
+//    
+//    self.navigationItem.leftBarButtonItem = back;
     
-    self.navigationItem.leftBarButtonItem = back;
-    
-    self.title = @"发 布";
+    self.title = @"拍照下单";
     
     _selectedPhotos = [NSMutableArray array];
     _selectedAssets = [NSMutableArray array];
@@ -133,7 +132,7 @@
     [self creatButton];             //  添加确定下单按钮
     
     
-    //  添加取消按钮->
+    //  添加取消按钮->更改原生leftBarButtonItem
     [self addCancelBtn];
     
     /**
@@ -161,7 +160,7 @@
     upView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:upView];
     upView.sd_layout.leftSpaceToView(self.view, 0)
-    .topSpaceToView(self.view, HEADERIMG_HEIGHT)
+    .topSpaceToView(self.view, 0)
     .rightSpaceToView(self.view, 0)
     .heightIs(KScreenHeight * 0.3);
     
@@ -197,25 +196,25 @@
 //  Navigation、标题、描述
 - (void)creatUpView {
     
-    //  Navigation 发 布
-    headerImg = [[UIImageView alloc] init];
-    headerImg.backgroundColor = [UIColor colorWithRed:253.0/255.0 green:217.0/255.0 blue:85.0/255.0 alpha:1];
-    [self.view addSubview:headerImg];
-    headerImg.sd_layout.leftSpaceToView(self.view, 0)
-    .topSpaceToView(self.view, 0)
-    .rightSpaceToView(self.view, 0)
-    .heightIs(HEADERIMG_HEIGHT);
-    
-    UILabel *titleLable = [[UILabel alloc] init];
-    //    titleLable.backgroundColor = [UIColor purpleColor];
-    titleLable.text = @"发 布";
-    [titleLable setFont:[UIFont systemFontOfSize:18]];
-    titleLable.textAlignment = NSTextAlignmentCenter;
-    [headerImg addSubview:titleLable];
-    titleLable.sd_layout.leftSpaceToView(headerImg, self.view.frame.size.width / 2 - 30)
-    .topSpaceToView(headerImg, 25)
-    .bottomSpaceToView(headerImg, 5)
-    .widthIs(60);
+//    //  Navigation 发 布
+//    headerImg = [[UIImageView alloc] init];
+//    headerImg.backgroundColor = [UIColor colorWithRed:253.0/255.0 green:217.0/255.0 blue:85.0/255.0 alpha:1];
+//    [self.view addSubview:headerImg];
+//    headerImg.sd_layout.leftSpaceToView(self.view, 0)
+//    .topSpaceToView(self.view, 0)
+//    .rightSpaceToView(self.view, 0)
+//    .heightIs(HEADERIMG_HEIGHT);
+//    
+//    UILabel *titleLable = [[UILabel alloc] init];
+//    //    titleLable.backgroundColor = [UIColor purpleColor];
+//    titleLable.text = @"发 布";
+//    [titleLable setFont:[UIFont systemFontOfSize:18]];
+//    titleLable.textAlignment = NSTextAlignmentCenter;
+//    [headerImg addSubview:titleLable];
+//    titleLable.sd_layout.leftSpaceToView(headerImg, self.view.frame.size.width / 2 - 30)
+//    .topSpaceToView(headerImg, 25)
+//    .bottomSpaceToView(headerImg, 5)
+//    .widthIs(60);
     
     
     //  标题
@@ -576,24 +575,25 @@
 
 
 
-#pragma mark - 取消下单按钮
+#pragma mark - 取消下单按钮  < 按钮
 //添加取消按钮->
 - (void)addCancelBtn {
-    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [cancelBtn setFrame:CGRectMake(10, 30, 40, 30)];
-    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
-    [self.view addSubview:cancelBtn];
-    [cancelBtn addTarget:self action:@selector(cancelTwoClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backbtn"] style:UIBarButtonItemStylePlain target:self action:@selector(cancelTwoClick)];
+    
+    self.navigationItem.leftBarButtonItem = backBtn;
+    
 }
 
 //取消按钮点击方法
 - (void)cancelTwoClick {
-    [self finishPublish];
+    
+    [self twoFinishPublish];
 }
 
 #pragma mark - 完成发布
 //返回
--(void)finishPublish{
+-(void)twoFinishPublish{
     //2.block传值
     if (self.mDismissBlock != nil) {
         self.mDismissBlock();

@@ -51,6 +51,8 @@
 		5753F0511DC824E7001D95D6 /* NSCalendar+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = 5753F04E1DC824E7001D95D6 /* NSCalendar+ST.m */; };
 		5753F0521DC824E7001D95D6 /* STPickerDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5753F0501DC824E7001D95D6 /* STPickerDate.m */; };
 		5753F0561DC824EC001D95D6 /* STPickerSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5753F0551DC824EC001D95D6 /* STPickerSingle.m */; };
+		575439D21DE57A0500F68645 /* ZSBalanceCashVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 575439CF1DE57A0500F68645 /* ZSBalanceCashVc.m */; };
+		575439D31DE57A0500F68645 /* ZSBalanceRechargeVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 575439D11DE57A0500F68645 /* ZSBalanceRechargeVc.m */; };
 		57599A651DB9A520007BC223 /* ZSRegisterCustomerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57599A621DB9A520007BC223 /* ZSRegisterCustomerVC.m */; };
 		57599A661DB9A520007BC223 /* ZSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57599A641DB9A520007BC223 /* ZSRegisterViewController.m */; };
 		5765DB741DDA9EC0005AC05B /* XRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765DB711DDA9EC0005AC05B /* XRCarouselView.m */; };
@@ -213,6 +215,10 @@
 		5753F0501DC824E7001D95D6 /* STPickerDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPickerDate.m; sourceTree = "<group>"; };
 		5753F0541DC824EC001D95D6 /* STPickerSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPickerSingle.h; sourceTree = "<group>"; };
 		5753F0551DC824EC001D95D6 /* STPickerSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPickerSingle.m; sourceTree = "<group>"; };
+		575439CE1DE57A0500F68645 /* ZSBalanceCashVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBalanceCashVc.h; sourceTree = "<group>"; };
+		575439CF1DE57A0500F68645 /* ZSBalanceCashVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBalanceCashVc.m; sourceTree = "<group>"; };
+		575439D01DE57A0500F68645 /* ZSBalanceRechargeVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSBalanceRechargeVc.h; sourceTree = "<group>"; };
+		575439D11DE57A0500F68645 /* ZSBalanceRechargeVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSBalanceRechargeVc.m; sourceTree = "<group>"; };
 		57599A611DB9A520007BC223 /* ZSRegisterCustomerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRegisterCustomerVC.h; sourceTree = "<group>"; };
 		57599A621DB9A520007BC223 /* ZSRegisterCustomerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSRegisterCustomerVC.m; sourceTree = "<group>"; };
 		57599A631DB9A520007BC223 /* ZSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSRegisterViewController.h; sourceTree = "<group>"; };
@@ -734,6 +740,10 @@
 				5712447D1DC1DE97009CBE66 /* ZSMineInfoViewController.m */,
 				576E11631DDAA3AD00D6C1E2 /* ZSBalanceViewController.h */,
 				576E11641DDAA3AD00D6C1E2 /* ZSBalanceViewController.m */,
+				575439CE1DE57A0500F68645 /* ZSBalanceCashVc.h */,
+				575439CF1DE57A0500F68645 /* ZSBalanceCashVc.m */,
+				575439D01DE57A0500F68645 /* ZSBalanceRechargeVc.h */,
+				575439D11DE57A0500F68645 /* ZSBalanceRechargeVc.m */,
 				576E11651DDAA3AD00D6C1E2 /* ZSFamilyViewController.h */,
 				576E11661DDAA3AD00D6C1E2 /* ZSFamilyViewController.m */,
 				576E11671DDAA3AD00D6C1E2 /* ZSHelpViewController.h */,
@@ -1133,6 +1143,7 @@
 				5768BFA61DDC09A500B5C311 /* MinedetailInformationViewController.m in Sources */,
 				30F6C5B21DD1BBF1009E766C /* ZSDetailsViewController.m in Sources */,
 				578B70B51DC0775600453A18 /* ZSSettingViewController.m in Sources */,
+				575439D31DE57A0500F68645 /* ZSBalanceRechargeVc.m in Sources */,
 				30A2914E1DE2C6680012476D /* TZVideoPlayerController.m in Sources */,
 				5768C23F1DB5BAFC0069B421 /* ZSOrderViewController.m in Sources */,
 				30A291461DE2C6680012476D /* TZAssetCell.m in Sources */,
@@ -1154,6 +1165,7 @@
 				30A2914B1DE2C6680012476D /* TZPhotoPickerController.m in Sources */,
 				5765DB7B1DDA9EFF005AC05B /* ZSMapAroundViewController.m in Sources */,
 				5768C2481DB5BB390069B421 /* ZSMineViewController.m in Sources */,
+				575439D21DE57A0500F68645 /* ZSBalanceCashVc.m in Sources */,
 				576CBA741DCAC48300514182 /* myimgeview.m in Sources */,
 				30A2914A1DE2C6680012476D /* TZImagePickerController.m in Sources */,
 				5768C2361DB5B9AA0069B421 /* ZSTabBarController.m in Sources */,
@@ -1345,7 +1357,7 @@
 					"$(PROJECT_DIR)/MaintenanceExpert/Other/SMS_SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2副本/MaintenanceExpert/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2 ios10/MaintenanceExpert/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = MaintenanceExpert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1367,7 +1379,7 @@
 					"$(PROJECT_DIR)/MaintenanceExpert/Other/SMS_SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2副本/MaintenanceExpert/Other/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/koka/Desktop/MaintenanceExpertThree 2 ios10/MaintenanceExpert/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = MaintenanceExpert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

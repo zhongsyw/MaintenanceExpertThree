@@ -296,14 +296,16 @@
 #pragma - mark 申请验证码
 - (void)getRegisterCode {
     
-    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:_phoneTF.text zone:@"86" customIdentifier:@"yanzhengma" result:^(NSError *error) {
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS
+                            phoneNumber:_phoneTF.text
+                            zone:@"86"
+                            customIdentifier:nil
+                            result:^(NSError *error) {
         
         if (!error) {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"成功" message:[NSString stringWithFormat:@"已像%@的发送验证码",_phoneTF.text]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
-            [alert show];
+            NSLog(@"成功");
         }else {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"codesenderrtitle", nil) message:[NSString stringWithFormat:@"错误描述：%@",error.debugDescription]  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
-            [alert show];
+            NSLog(@"失败");
         }
     }];
 }
@@ -322,13 +324,13 @@
 
 #pragma - mark 提交验证码
 - (void)commitverifyCode {
-    [SMSSDK commitVerificationCode:_messageTF.text phoneNumber:_phoneTF.text zone:@"86" result:^(SMSSDKUserInfo *userInfo, NSError *error) {
+    [SMSSDK commitVerificationCode:_messageTF.text
+                       phoneNumber:_phoneTF.text
+                       zone:@"86"
+                       result:^(SMSSDKUserInfo *userInfo, NSError *error) {
         if (!error) {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"成功" message:@"验证码验证成功"  delegate:self cancelButtonTitle:@"确定"  otherButtonTitles:nil, nil];
-            [alert show];
             /**
              验证成功后进入注册界面
-             
             */
             ZSRegisterCustomerVC* custormerVC = [[ZSRegisterCustomerVC alloc] init];
             [self.navigationController pushViewController:custormerVC animated:YES];

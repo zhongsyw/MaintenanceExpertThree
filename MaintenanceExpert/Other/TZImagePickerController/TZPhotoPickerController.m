@@ -65,6 +65,7 @@ static CGSize AssetGridThumbnailSize;
 - (void)viewDidLoad {
     [super viewDidLoad];
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
+    
     _isSelectOriginalPhoto = tzImagePickerVc.isSelectOriginalPhoto;
     _shouldScrollToBottom = YES;
     self.view.backgroundColor = [UIColor whiteColor];
@@ -154,7 +155,7 @@ static CGSize AssetGridThumbnailSize;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (iOS8Later) {
-        // [self updateCachedAssets];
+         [self updateCachedAssets];
     }
 }
 

@@ -236,14 +236,14 @@
     _nameLabel.textAlignment = NSTextAlignmentLeft;
     _nameLabel.userInteractionEnabled = YES;
     
-    _Loginbtn = [[UIButton alloc]initWithFrame:CGRectMake( KScreenWidth / 10, 44, 100, 40)];
-
-    [_Loginbtn setTitle:@"登 录" forState:UIControlStateNormal];
-    _Loginbtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-    [_Loginbtn.titleLabel setFont:[UIFont systemFontOfSize:30 weight:5]];
-    [_Loginbtn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchDown];
-    _Loginbtn.backgroundColor = [UIColor clearColor];
-    [_HeaderView addSubview:_Loginbtn];
+//    _Loginbtn = [[UIButton alloc]initWithFrame:CGRectMake( KScreenWidth / 10, 44, 100, 40)];
+//
+//    [_Loginbtn setTitle:@"登 录" forState:UIControlStateNormal];
+//    _Loginbtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    [_Loginbtn.titleLabel setFont:[UIFont systemFontOfSize:30 weight:5]];
+//    [_Loginbtn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchDown];
+//    _Loginbtn.backgroundColor = [UIColor clearColor];
+//    [_HeaderView addSubview:_Loginbtn];
   
 }
 - (void)createmoneylabel {
@@ -254,8 +254,8 @@
     _moneyLabel.textColor = [UIColor whiteColor];
     [_HeaderView addSubview:_moneyLabel];
     
-    _moneyLabel.sd_layout.leftEqualToView(self.nameLabel)
-    .topSpaceToView(self.nameLabel,0)
+    _moneyLabel.sd_layout.leftSpaceToView(_HeaderView,KScreenWidth / 10)
+    .topSpaceToView(_HeaderView,84)
     .heightIs(30)
     .widthIs(130);
     _moneyLabel.font = [UIFont systemFontOfSize:15];
@@ -414,18 +414,18 @@
     
 }
 
-- (void)click {
-    
-    ZSLoginViewController *zslogin = [[ZSLoginViewController alloc]init];
-    [self.tabBarController addChildViewController:zslogin];
-    //[self presentViewController:zslogin animated:YES completion:nil];
-    //self.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:zslogin animated:YES];
-    //self.hidesBottomBarWhenPushed=NO;
-    
-    
-    
-}
+//- (void)click {
+//    
+//    ZSLoginViewController *zslogin = [[ZSLoginViewController alloc]init];
+//    [self.tabBarController addChildViewController:zslogin];
+//    //[self presentViewController:zslogin animated:YES completion:nil];
+//    //self.hidesBottomBarWhenPushed=YES;
+//    [self.navigationController pushViewController:zslogin animated:YES];
+//    //self.hidesBottomBarWhenPushed=NO;
+//    
+//    
+//    
+//}
 
 
 
